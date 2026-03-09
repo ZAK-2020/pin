@@ -8,7 +8,7 @@ import connectDB from "./utils/connectDB.js";
 import cookieParser from "cookie-parser";
 import fileUpload from "express-fileupload";
 
-
+const PORT = process.env.PORT || 3000;
 const app = express();
 app.use(express.json());
 app.use(cors({origin:process.env.CLIENT_URL,credentials:true}))
@@ -21,7 +21,7 @@ app.use("/boards",boardRouter)
 app.use("/comments",commentRouter)
 
 
-app.listen(3000,()=>{
-    connectDB();
-    console.log("server is running")
-})
+app.listen(PORT, "0.0.0.0", () => {
+  connectDB();
+  console.log(`server is running on ${PORT}`);
+});
