@@ -1,12 +1,12 @@
 {
   "name": "pin-api",
+  "version": "1.0.0",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "dev": "node --watch --env-file=.env index.js",
     "start": "node index.js"
-  }
-}
+  },
   "dependencies": {
     "bcryptjs": "^3.0.2",
     "cookie-parser": "^1.4.7",
