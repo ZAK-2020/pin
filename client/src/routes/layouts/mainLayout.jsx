@@ -2,7 +2,7 @@
 import { Outlet } from 'react-router';
 import LeftBar from '../../components/leftBar/leftBar'
 import TopBar from '../../components/topBar/topBar'
-import "./MainLayout.css";
+import "./mainLayout.css";
 
 const MainLayout = () => {
    return (
