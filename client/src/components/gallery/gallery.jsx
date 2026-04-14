@@ -27,7 +27,7 @@ const Gallery = ({ search, userId, boardId }) => {
 
   console.log(data);
 
-  const allPins = data?.pages.flatMap((page) => page.pins) || [];
+  const allPins = data?.pages.flatMap((page) => page.pins || []).filter(Boolean) || [];
 
   return (
     <InfiniteScroll
