@@ -1,5 +1,4 @@
 import useEditorStore from "../../utils/editorStore";
-import Image from "../image/imageComponent";
 
 const Layers = () => {
   const { selectedLayer, setSelectedLayer, addText, canvasOptions } =
@@ -23,7 +22,7 @@ const Layers = () => {
         className={`layer ${selectedLayer === "text" ? "selected" : ""}`}
       >
         <div className="layerImage">
-          <Image path="/general/text.png" alt="" w={48} h={48} />
+          <img src="/general/text.png" alt="" />
         </div>
         <span>Add Text</span>
       </div>

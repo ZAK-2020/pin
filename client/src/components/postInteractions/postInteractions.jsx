@@ -1,4 +1,3 @@
-import Image from "../image/imageComponent";
 import "./postInteractions.css";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import apiRequest from "../../utils/apiRequest";
@@ -48,8 +47,8 @@ const PostInteractions = ({ postId }) => {
           />
         </svg>
         {data.likeCount}
-        <Image path="/general/share.svg" alt="" />
-        <Image path="/general/more.svg" alt="" />
+        <img src="/general/share.svg" alt="" />
+        <img src="/general/more.svg" alt="" />
       </div>
       <button
         disabled={mutation.isPending}

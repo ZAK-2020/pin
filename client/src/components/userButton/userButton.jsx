@@ -29,16 +29,19 @@ const UserButton = () => {
 
   return currentUser ? (
     <div className="userButton">
-      <ImageComponent path={currentUser.img || "/general/noAvatar.png"} alt="" />
+      {currentUser.img ? (
+        <ImageComponent path={currentUser.img} alt="" />
+      ) : (
+        <img src="/general/noAvatar.png" alt="" />
+      )}
       <div onClick={() => setOpen((prev) => !prev)}>
-        <ImageComponent path="/general/arrow.svg" alt="" className="arrow" />
+        <img src="/general/arrow.svg" alt="" className="arrow" />
       </div>
       {open && (
         <div className="userOptions">
-          <Link to={`/profile/${currentUser.username}`} className="userOption">
+          <Link to={`/${currentUser.username}`} className="userOption">
             Profile
           </Link>
-          <div className="userOption">Setting</div>
           <div className="userOption" onClick={handleLogout}>
             Logout
           </div>

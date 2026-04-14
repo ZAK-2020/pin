@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import useEditorStore from "../../utils/editorStore";
-import Image from "../image/imageComponent";
 
 const Workspace = ({ previewImg }) => {
   const {
@@ -93,7 +92,7 @@ const Workspace = ({ previewImg }) => {
               className="deleteTextButton"
               onClick={() => setTextOptions({ ...textOptions, text: "" })}
             >
-              <Image path="/general/delete.svg" alt="" />
+              <img src="/general/delete.svg" alt="" />
             </div>
           </div>
         )}

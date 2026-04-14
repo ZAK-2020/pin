@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./authPage.css";
-import ImageContainer from "../../components/image/imageComponent";
 import apiRequest from "../../utils/apiRequest";
 import {useNavigate} from "react-router"
 import useAuthStore from "../../utils/authStore";
@@ -33,7 +32,7 @@ const AuthPage = () => {
   return (
     <div className="authPage">
       <div className="authContainer">
-        <ImageContainer path="/general/logo.png" alt="" />
+        <img src="/general/logo.png" alt="" />
         <h1>{isRegister ? "Create an account" : "Login to Your account"}</h1>
         {isRegister ? (
           <form key="register" onSubmit={handleSubmit}>

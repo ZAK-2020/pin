@@ -11,9 +11,9 @@ import { verifyToken } from "../middlewares/verifyToken.js";
 const router = express.Router();
 
 router.get("/", getPins);
+router.get("/interaction-check/:id", interactionCheck);
+router.post("/interact/:id", verifyToken, interact);
 router.get("/:id", getPin);
 router.post("/", verifyToken, createPin);
-router.get("/interaction-check/:id", interactionCheck);
-router.post("/interact/:id",verifyToken, interact);
 
 export default router;

@@ -39,7 +39,11 @@ const PostPage = () => {
         <div className="postDetails">
           <PostInteractions postId={id}/>
           <Link to={`/${data.user.username}`} className="postUser">
-            <Image path={data.user.img || "/general/noAvatar.png"} />
+            {data.user.img ? (
+              <Image path={data.user.img} alt="" />
+            ) : (
+              <img src="/general/noAvatar.png" alt="" />
+            )}
             <span>{data.user.displayName}</span>
           </Link>
           <Comments id={data._id}/>

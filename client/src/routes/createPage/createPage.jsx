@@ -1,5 +1,4 @@
 import "./createPage.css";
-import IKImage from "../../components/image/imageComponent";
 import useAuthStore from "../../utils/authStore";
 import { useNavigate } from "react-router";
 import { useEffect, useRef, useState } from "react";
@@ -92,7 +91,7 @@ const CreatePage = () => {
   // FIXED: FETCH EXISTING BOARDS
   const { data, isPending, error } = useQuery({
     queryKey: ["formBoards"],
-    queryFn: () => apiRequest.get(`/boards`).then((res) => res.data),
+    queryFn: () => apiRequest.get(`/boards/${currentUser._id}`).then((res) => res.data),
   });
 
   // FIXED: ADD NEW BOARD
@@ -114,14 +113,14 @@ const CreatePage = () => {
             <div className="preview">
               <img src={previewImg.url} alt="" />
               <div className="editIcon" onClick={() => setIsEditing(true)}>
-                <IKImage path="/general/edit.svg" alt="" />
+                <img src="/general/edit.svg" alt="" />
               </div>
             </div>
           ) : (
             <>
               <label htmlFor="file" className="upload">
                 <div className="uploadTitle">
-                  <IKImage path="/general/upload.svg" alt="" />
+                  <img src="/general/upload.svg" alt="" />
                   <span>Choose a file</span>
                 </div>
                 <div className="uploadInfo">

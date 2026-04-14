@@ -15,7 +15,7 @@ const ImageComponent = ({path,src,alt,className,w,h}) => {
         loading = "lazy"
         className={className}
         lqip = {{active:true, quality:20}}
-        alt="Picture of the author"
+        alt={alt}
       />
   )
 }

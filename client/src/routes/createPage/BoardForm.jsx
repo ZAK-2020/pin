@@ -1,4 +1,3 @@
-import Image from "../../components/image/imageComponent";
 
 const BoardForm = ({ setIsNewBoardOpen, setNewBoard }) => {
   const handleSubmit = (e) => {
@@ -15,7 +14,7 @@ const BoardForm = ({ setIsNewBoardOpen, setNewBoard }) => {
           className="boardFormClose"
           onClick={() => setIsNewBoardOpen(false)}
         >
-          <Image path="/general/cancel.svg" alt="" w={20} h={20} />
+          <img src="/general/cancel.svg" alt="" />
         </div>
         <form onSubmit={handleSubmit}>
           <h1>Create a new board</h1>

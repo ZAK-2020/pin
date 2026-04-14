@@ -26,20 +26,18 @@ const ProfilePage = () => {
 
   return (
     <div className="profilePage">
-      <Image
-        className="profileImg"
-        w={100}
-        h={100}
-        path={data.img || "/general/noAvatar.png"}
-        alt=""
-      />
+      {data.img ? (
+        <Image className="profileImg" w={100} h={100} path={data.img} alt="" />
+      ) : (
+        <img className="profileImg" src="/general/noAvatar.png" alt="" />
+      )}
       <h1 className="profileName">{data.displayName}</h1>
       <span className="profileUsername">@{data.username}</span>
       <div className="followCounts">
         {data.followerCount} followers · {data.followingCount} followings
       </div>
       <div className="profileInteractions">
-        <Image path="/general/share.svg" alt="" />
+        <img src="/general/share.svg" alt="" />
         <div className="profileButtons">
           <button>Message</button>
           <FollowButton
@@ -47,7 +45,7 @@ const ProfilePage = () => {
             username={data.username}
           />
         </div>
-        <Image path="/general/more.svg" alt="" />
+        <img src="/general/more.svg" alt="" />
       </div>
       <div className="profileOptions">
         <span
