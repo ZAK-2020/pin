@@ -11,11 +11,38 @@ import fileUpload from "express-fileupload";
 
 const PORT = process.env.PORT || 3000;
 const app = express();
-app.use(express.json());
-app.use(cors({
-  origin: process.env.CLIENT_URL,
+
+const normalizeOrigin = (value = "") =>
+  value.trim().replace(/^"+|"+$/g, "").replace(/\/+$/, "");
+
+const allowedOrigins = [
+  process.env.CLIENT_URL,
+  process.env.CLIENT_URL_2,
+  "http://localhost:5173",
+  "http://127.0.0.1:5173",
+]
+  .map(normalizeOrigin)
+  .filter(Boolean);
+
+const corsOptions = {
+  origin(origin, callback) {
+    if (!origin) {
+      return callback(null, true);
+    }
+
+    const normalizedOrigin = normalizeOrigin(origin);
+
+    if (allowedOrigins.includes(normalizedOrigin)) {
+      return callback(null, true);
+    }
+
+    return callback(new Error(`Origin not allowed by CORS: ${origin}`));
+  },
   credentials: true,
-}));
+};
+
+app.use(express.json());
+app.use(cors(corsOptions));
 app.use(cookieParser());
 app.use(fileUpload());
 

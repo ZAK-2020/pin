@@ -25,7 +25,10 @@ const AuthPage = () => {
       setCurrentUser(res.data);
       navigate("/")
     } catch (err) {
-      setError(err.response.data.message);
+      setError(
+        err.response?.data?.message ||
+          "Unable to reach the server. Please check the API and CORS configuration."
+      );
     }
   };
 
